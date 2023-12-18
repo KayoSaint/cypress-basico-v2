@@ -2,8 +2,7 @@ class happy {
 
    preecheTudo(){
 
-        cy.get('input[id="firstName"]')
-        .type('Kayo')
+        cy.get('input[id="firstName"]').type(Cypress.env('first_name'))
     
         cy.get('input[id="lastName"]')
         .type('Ferreira')
@@ -16,9 +15,9 @@ class happy {
     
         cy.get('textarea[id="open-text-area"]')
         .type('Me ajude a saber muito!')
-    
-        cy.get('button[type="submit"]')
-        .click()
+
+        //teste usando o contains ao invés do get para realizar ações.
+        cy.contains('button[type="submit"][class="button"]','Enviar').click()
         
         cy.get('span[class="success"]')
         .should('be.visible')

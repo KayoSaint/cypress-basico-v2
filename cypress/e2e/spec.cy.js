@@ -14,21 +14,22 @@ describe('template spec', () => {
 
   it(' Não Preenche o campo de nome e envia o formulário', () => {
     camposInvalidos.semNome();
-
   })
 
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida!', () => {
     camposInvalidos.emailInvalido();
-
   })
 
   it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     camposInvalidos.telefoneVazio();
-
   })
-  it.only('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
+  it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     camposInvalidos.limpaCampos();
+  })
 
+  it('envia o formuário com sucesso usando um comando customizado', ()=>{
+    //usando comandos costumizados
+    cy.fillMandatoryFieldsAndSubmit()
   })
 })
 
