@@ -4,7 +4,7 @@ import camposInvalidos from '../support/pages/preencher/camposInvalidos';
 
 
 describe('template spec', () => {
-  
+
   //visita a página
   login.acessarLogin();
 
@@ -23,13 +23,52 @@ describe('template spec', () => {
   it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     camposInvalidos.telefoneVazio();
   })
+
   it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     camposInvalidos.limpaCampos();
   })
 
-  it('envia o formuário com sucesso usando um comando customizado', ()=>{
+  it('envia o formuário com sucesso usando um comando customizado', () => {
     //usando comandos costumizados
     cy.fillMandatoryFieldsAndSubmit()
   })
+
+  it('seleciona um produto (YouTube) por seu texto', () => {
+    happy.selectItemYoutube();
+  })
+
+  it('seleciona um produto (Mentoria) por seu texto', () => {
+    happy.selectItemMentoria();
+  })
+
+  it('seleciona um produto (Blog) por seu texto', () => {
+    happy.selectItemBlog();
+  })
+
+  it('seleciona um item do tipo rádio Ajuda', () => {
+    happy.selectItemRadioAjuda();
+  })
+
+  it('seleciona um item do tipo rádio Elogio', () => {
+    happy.selectItemRadioElogio();
+  })
+
+  it('seleciona um item do tipo rádio Feedbaack', () => {
+    happy.selectItemRadioFeedback();
+  })
+
+  it('Marca ambos checkboxes, depois desmarca o último',() => {
+    happy.checkCheckboxEmail();
+    happy.checkCheckboxPhone();
+    cy.wait(2000);
+    happy.uncheckCheckboxPhone();
+  })
+
+  it('Exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário',()=>{
+      camposInvalidos.emptyCheckbox();
+  })
+
+
+
 })
 
