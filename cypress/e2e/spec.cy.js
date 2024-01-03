@@ -1,7 +1,8 @@
 import login from '../support/pages/acessar/index';
 import happy from '../support/pages/preencher/preencheTudo'
 import camposInvalidos from '../support/pages/preencher/camposInvalidos';
-
+import addArchive from '../support/pages/addArchives/addArchives';
+import otherTabs from '../support/pages/otherTabs/otherTabs';
 
 describe('template spec', () => {
 
@@ -67,6 +68,27 @@ describe('template spec', () => {
   it('Exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário',()=>{
       camposInvalidos.emptyCheckbox();
   })
+
+  it('Seleciona um arquivo da pasta fixtures',()=>{
+    addArchive.uploadExample();
+  })
+
+  it('Seleciona um arquivo simulando um drag-and-drop',()=>{
+    addArchive.dragAndDrop();
+  })
+
+  it('Seleciona um arquivo utilizando uma fixture para a qual foi dada um alias',()=>{
+    addArchive.aliasFile();
+  })
+
+  it('Verifica que a política de privacidade abre em outra aba sem a necessidade de um clique',()=>{
+    otherTabs.targetBlank();
+  })
+
+  it.only('Acessa a página da política de privacidade removendo o target e então clicando no link',()=>{
+    otherTabs.invoke();
+  })
+
 
 
 
